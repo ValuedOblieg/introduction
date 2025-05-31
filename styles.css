@@ -1,0 +1,241 @@
+body {
+  background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.wave-bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+.wave-top {
+  top: 0;
+}
+
+.wave-bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.container, #preloader {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: add a slight blur to the waves for a softer look */
+.wave-bg svg {
+  filter: blur(1px);
+}
+
+.section-bg-1 {
+  background: rgba(35, 53, 84, 0.92); /* matches top wave */
+  box-shadow: 0 4px 32px 0 rgba(35,53,84,0.10);
+}
+.section-bg-2 {
+  background: rgba(30, 42, 58, 0.92); /* matches mid wave */
+  box-shadow: 0 4px 32px 0 rgba(30,42,58,0.10);
+}
+.section-bg-3 {
+  background: rgba(142, 202, 255, 0.10); /* matches accent wave */
+  box-shadow: 0 4px 32px 0 rgba(142,202,255,0.10);
+}
+.section-border {
+  border-radius: 1.5rem;
+  border: 1.5px solid #233554;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.4,0.2,0.2,1), transform 0.8s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+.section-border.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional: add a subtle border glow for more depth */
+.section-border {
+  box-shadow: 0 0 24px 0 #1e2a3a33;
+}
+
+h2, h4 {
+  color: #3a4a6b;
+}
+
+.intro-img, .band-logo, .manga-img {
+  box-shadow: 0 2px 16px 0 rgba(123, 97, 255, 0.10);
+  border-radius: 16px;
+  background: #e3eafc;
+  margin-bottom: 1rem;
+}
+
+.band-summary, .manga-summary {
+  color: #4b5563;
+  font-size: 1.05rem;
+  background: rgba(230, 240, 255, 0.5);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-top: 0.7rem;
+  box-shadow: 0 1px 8px 0 rgba(123, 97, 255, 0.06);
+}
+
+.glow-text {
+  color: #fff;
+  text-shadow:
+    0 0 8px #8ecaff,
+    0 0 16px #8ecaff,
+    0 0 32px #8ecaff,
+    0 0 64px #8ecaff;
+  transition: text-shadow 0.3s;
+}
+
+.glow-text-strong {
+  color: #fff;
+  text-shadow:
+    0 0 12px #8ecaff,
+    0 0 24px #8ecaff,
+    0 0 48px #8ecaff,
+    0 0 96px #8ecaff;
+  font-weight: bold;
+  transition: text-shadow 0.3s;
+}
+
+.glow-text-soft {
+  color: #e3f2fd;
+  text-shadow:
+    0 0 6px #b3e5fc,
+    0 0 12px #b3e5fc;
+}
+
+/* Preloader animated music notes */
+#preloader-logo .note {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.85;
+  animation: floatNote 2.2s infinite ease-in-out;
+  pointer-events: none;
+}
+#preloader-logo .note1 {
+  left: -22px;
+  top: 10px;
+  color: #8ecaff;
+  animation-delay: 0s;
+}
+#preloader-logo .note2 {
+  right: -22px;
+  top: 18px;
+  color: #b3e5fc;
+  animation-delay: 0.7s;
+}
+#preloader-logo .note3 {
+  left: 50%;
+  top: -24px;
+  color: #fff;
+  transform: translateX(-50%);
+  animation-delay: 1.2s;
+}
+@keyframes floatNote {
+  0% { opacity: 0.7; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-18px) scale(1.2); }
+  100% { opacity: 0.7; transform: translateY(0) scale(1); }
+}
+
+/* Preloader animated dots */
+.preloader-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.preloader-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #8ecaff;
+  opacity: 0.7;
+  animation: dotPulse 1.2s infinite alternate;
+}
+.preloader-dots .dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.preloader-dots .dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+@keyframes dotPulse {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+.album-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(35,53,84,0.18);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px 0 #1e2a3a33;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+}
+.album-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px 0 #8ecaff44;
+  background: #f7fafd;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+@media (min-width: 576px) {
+  .album-img {
+    width: 64px;
+    height: 64px;
+  }
+}
+@media (max-width: 767.98px) {
+  .album-container {
+    margin-left: 0.25rem;
+    padding: 0.15rem 0.3rem;
+  }
+  .album-img {
+    width: 40px;
+    height: 40px;
+  }
+  .col-md-6.text-end.d-flex {
+    align-items: flex-end !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-border {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .intro-img, .band-logo, .manga-img {
+    max-width: 90vw;
+  }
+}
+
+/* Dream project and all main images: float up/down animation */
+.img-animate-hover {
+  animation: imgFloat 2.2s ease-in-out infinite alternate;
+  transition: none;
+  cursor: default;
+}
+@keyframes imgFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-16px); }
+}
+.img-animate-hover:hover {
+  /* No effect on pointer hover */
+  animation-play-state: running;
+  transform: none;
+  box-shadow: none;
+}
