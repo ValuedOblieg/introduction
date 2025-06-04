@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function() {
   // Example data (replace with your own)
   nameEl.textContent = 'Farrrreeell';
   birthdayEl.textContent = 'March 22nd';
-  personalityEl.textContent = 'ISFP(maybe), e6w7 269 sp/sx';
+  personalityEl.textContent = 'ISFP(maybe(im too uncertain abt myself)';
 
   // Animate in
   [nameEl, birthdayEl, personalityEl].forEach((el, i) => {
